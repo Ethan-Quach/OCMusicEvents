@@ -9,6 +9,8 @@ import android.widget.ListView;
 
 public class EventListActivity extends ListActivity {
 
+    ListView eventsListView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,6 +25,7 @@ public class EventListActivity extends ListActivity {
         // ListActivity already inflates the layout.
         // Uncommenting setContentView() will actually crash the app.
         // setContentView(R.layout.activity_event_list);
+
 
 
     }
