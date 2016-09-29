@@ -22,6 +22,8 @@ public class EventListActivity extends ListActivity {
 
         setListAdapter(new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, MusicEvent.titles));
 
+        eventsListView = getListView();
+
         // ListActivity already inflates the layout.
         // Uncommenting setContentView() will actually crash the app.
         // setContentView(R.layout.activity_event_list);

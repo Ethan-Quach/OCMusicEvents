@@ -26,26 +26,40 @@ public class MusicDetailsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_music_details);
 
+        eventTitleTextView = (TextView) findViewById(R.id.eventTitleTextView);
+        eventDetailsTextView = (TextView) findViewById(R.id.eventDetailsTextView);
+        eventImageView = (ImageView) findViewById(R.id.eventImageView);
+
+        Log.i("OC Music Events", "Before receiving intent");
+
         Intent detailsIntent = getIntent();
+
+        Log.i("OC Music Events", "After receiving intent, but before assigning String Extras");
+
         String title = detailsIntent.getStringExtra("Title");
         String details = detailsIntent.getStringExtra("Details");
+
+        Log.i("OC Music Events", "After assigning String Extras, but before creating imageFileName");
+
         String imageFileName = title.replace(" ", "") + ".jpeg";
+
+        Log.i("OC Music Events", "Before creating AssetManager am");
 
         AssetManager am = context.getAssets();
         // Try to load the image file
         try
         {
             InputStream stream = am.open(imageFileName);
-            Drawable image = Drawable.createFromPath(stream, title);
+            Log.i("OC Music Events", "Before attempting to create Drawable image");
+            Drawable image = Drawable.createFromStream(stream, title);
+            Log.i("OC Music Events", "Before attempting to setImageDrawable for eventImageView");
             eventImageView.setImageDrawable(image);
         } catch (IOException e)
         {
             Log.e("OC Music Events", "Cannot load image: " + imageFileName + e);
         }
 
-        eventTitleTextView = (TextView) findViewById(R.id.eventTitleTextView);
-        eventDetailsTextView = (TextView) findViewById(R.id.eventDetailsTextView);
-        eventImageView = (ImageView) findViewById(R.id.eventImageView);
+        Log.i("OC Music Events", "Before setting the text for the TextViews");
 
         eventTitleTextView.setText(title);
         eventDetailsTextView.setText(details);
