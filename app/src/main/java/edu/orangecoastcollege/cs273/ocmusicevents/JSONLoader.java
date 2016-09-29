@@ -50,7 +50,7 @@ public class JSONLoader {
                 event.setLocation(musicEventJSON.getString("Location"));
                 event.setAddress1(musicEventJSON.getString("Address1"));
                 event.setAddress2(musicEventJSON.getString("Address2"));
-                event.setImageName(musicEventJSON.getString("ImageName"));
+                event.setImageName(musicEventJSON.optString("ImageName"));
 
             allMusicEvents.add(event);
         }

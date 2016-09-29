@@ -56,6 +56,7 @@ public class EventListActivity extends ListActivity {
         String location = clickedEvent.getLocation();
         String address1 = clickedEvent.getAddress1();
         String address2 = clickedEvent.getAddress2();
+        String imageName = clickedEvent.getImageName();
 
         detailsIntent.putExtra("Title", title);
         detailsIntent.putExtra("Date", date);
@@ -64,6 +65,7 @@ public class EventListActivity extends ListActivity {
         detailsIntent.putExtra("Location", location);
         detailsIntent.putExtra("Address1", address1);
         detailsIntent.putExtra("Address2", address2);
+        detailsIntent.putExtra("ImageName", imageName);
 
         startActivity(detailsIntent);
     }
