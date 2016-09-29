@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">OC Music Events</string>
+    <string name="eventImageViewDescription">An image of the artist who is performing at the event shown below.</string>
 </resources>

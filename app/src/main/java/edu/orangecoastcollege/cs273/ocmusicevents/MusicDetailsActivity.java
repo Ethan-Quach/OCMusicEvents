@@ -38,11 +38,7 @@ public class MusicDetailsActivity extends AppCompatActivity {
         eventAddress2TextView = (TextView) findViewById(R.id.eventAddress2TextView);
         eventImageView = (ImageView) findViewById(R.id.eventImageView);
 
-        Log.i("OC Music Events", "Before receiving intent");
-
         Intent detailsIntent = getIntent();
-
-        Log.i("OC Music Events", "After receiving intent, but before assigning String Extras");
 
         String title = detailsIntent.getStringExtra("Title");
         String dateDay = detailsIntent.getStringExtra("Date") + " " + detailsIntent.getStringExtra("Day");
@@ -52,23 +48,18 @@ public class MusicDetailsActivity extends AppCompatActivity {
         String address2 = detailsIntent.getStringExtra("Address2");
         String imageName = detailsIntent.getStringExtra("ImageName");
 
-        Log.i("OC Music Events", "Before creating AssetManager am");
 
         AssetManager am = context.getAssets();
         // Try to load the image file
         try
         {
             InputStream stream = am.open(imageName);
-            Log.i("OC Music Events", "Before attempting to create Drawable image");
             Drawable image = Drawable.createFromStream(stream, title);
-            Log.i("OC Music Events", "Before attempting to setImageDrawable for eventImageView");
             eventImageView.setImageDrawable(image);
         } catch (IOException e)
         {
             Log.e("OC Music Events", "Cannot load image: " + imageName + e);
         }
-
-        Log.i("OC Music Events", "Before setting the text for the TextViews");
 
         eventTitleTextView.setText(title);
         eventDateDayTextView.setText(dateDay);
