@@ -1,4 +1,4 @@
-package edu.orangecoastcollege.cs273.mpaulding.ocmusicevents;
+package edu.orangecoastcollege.cs273.ocmusicevents;
 
 /**
  * The MusicEvent class is a place holder for data corresponding to music events
